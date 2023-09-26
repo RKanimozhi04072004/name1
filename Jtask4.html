@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jtask4</title>
+</head>
+<body>
+    <button onclick="show_date()">show date </button>
+    <p id="dateoutput"></p>
+    <button onclick="show_time()">show Time</button>
+    <p id="timeoutput"></p>
+    <script>
+        function show_date(){
+            const currentDate=new Date();
+            let day=currentDate.getDate();
+            let monthIndex=currentDate.getMonth();
+            let year=currentDate.getFullYear();
+            const months=[
+                "January","February","March","April","May","June","July","Auguest","September","October","November","Decembar"
+            ];
+            const formatDate=day+"/"+months[monthIndex]+"/"+year;
+            document.getElementById("dateoutput").textContent=formatDate;
+        }
+        function show_time(){
+            const currentTime=new Date();
+            document.getElementById("timeoutput").textContent=currentTime.toString();
+        }
+    </script>
+</body>
+</html>

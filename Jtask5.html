@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jtask5</title>
+    <style>
+        .input-container {
+            margin-right: 10px;
+            margin: 10px;
+        }
+        #btn {
+            margin-left: 10px;
+            padding: 10px;
+        }
+        .error-message {
+            color: red;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .error-input {
+            border: 1px solid red;
+        }
+      
+        
+        
+    </style>
+</head>
+<body>
+    <form action="">
+        <table>
+            <tr>
+                <div class="input-container">
+                    <td><label for="name">Name:</label></td>
+                    <td><input type="text" id="name" required></td>
+                    <td><div id="resName" class="error-message"></div></td>
+                </div>
+            </tr>
+            <tr>
+                <div class="input-container">
+                    <td><label for="email">Email:</label></td>
+                   <td> <input type="email" id="email" required></td>
+                    <td><div id="resEmail" class="error-message"></div></td>
+                </div> 
+            </tr>
+            <tr>
+                <div class="input-container">
+                    <td><label for="website">Website:</label></td>
+                    <td><input type="url" id="website" required></td>
+                    <td><div id="resWebsite" class="error-message"></div></td>
+                </div>
+            </tr>
+            <tr>
+                <div class="input-container">
+                   <td> <label for="message">Message:</label></td>
+                    <td><textarea name="Message" id="message" cols="30" rows="6"></textarea></td>
+                    <td><div id="resMessage" class="error-message"></div></td>
+                </div>
+            </tr>
+            <tr>
+                <div id="btn">
+                    <td id="button"><button type="button" id="submitButton">Submit</button>
+                    </div></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        document.getElementById("submitButton").addEventListener("click", function() {
+            validateFields();
+        });
+
+        function validateFields() {
+            let name = document.getElementById("name");
+            let nameValue = name.value;
+            let resName = document.getElementById("resName");
+
+            let email = document.getElementById("email");
+            let emailValue = email.value;
+            let resEmail = document.getElementById("resEmail");
+
+            let website = document.getElementById("website");
+            let websiteValue = website.value;
+            let resWebsite = document.getElementById("resWebsite");
+
+            let message = document.getElementById("message");
+            let messageValue = message.value;
+            let resMessage = document.getElementById("resMessage");
+
+            if (nameValue.trim() === "") {
+                resName.innerText = "This field is required.";
+                name.classList.add("error-input");
+            } else {
+                resName.innerText = "";
+                name.classList.remove("error-input");
+            }
+
+            if (emailValue.trim() === "") {
+                resEmail.innerText = "A valid email address is required.";
+                email.classList.add("error-input");
+            } else {
+                resEmail.innerText = "";
+                email.classList.remove("error-input");
+            }
+
+            if (websiteValue.trim() === "") {
+                resWebsite.innerText = "A valid url is required.";
+                website.classList.add("error-input");
+            } else {
+                resWebsite.innerText = "";
+                website.classList.remove("error-input");
+            }
+
+            if (messageValue.trim() === "") {
+                resMessage.innerText = "This field is required.";
+                message.classList.add("error-input");
+            } else {
+                resMessage.innerText = "";
+                message.classList.remove("error-input");
+            }
+        }
+    </script>
+</body>
+</html>

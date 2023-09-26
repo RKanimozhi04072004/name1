@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jtask3</title>
+    <style>
+        body{
+            border:1px solid black;
+            width:400px;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            position:relative;
+            margin:0 auto;
+            margin-top:180px;
+        }
+    </style>
+</head>
+<body>
+    <p>Write a JavaScript program  to calculate multiplication and division of two numbers</p>
+    <label for="firstnum">1st Number:</label>
+    <input type="number" id="firstnum">
+    <br>
+    <br>
+    <label for="secondnum">2nd Number:</label>
+    <input type="number" id="secondnum">
+    <br>
+    <br>
+    <button id="mul" onclick="calculateNum('multiply')">Multiply</button>
+    <button id="div" onclick="calculateNum('divide')">Divide</button>
+    <br>
+    <br>
+    <p>The Result is: <span id="output"></span></p>
+    <script>
+        function calculateNum(operation){
+            let firstno=Number(document.getElementById("firstnum").value);
+            console.log(firstno);
+            let secondno=Number(document.getElementById("secondnum").value);
+            let result=0;
+            if(operation=='multiply'){
+                result=firstno*secondno;
+            }
+            else if(operation=='divide' && secondno!==0){
+                result=firstno/secondno;
+            }
+            else{
+                document.getElementById('output').textContent="Invalid operation"
+            }
+            document.getElementById('output').textContent=result;
+           
+        }
+    </script>
+</body>
+</html>

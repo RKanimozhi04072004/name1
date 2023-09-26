@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jtask7</title>
+    <style>
+        #btn1{
+            margin-left:30px;
+            padding:5px 15px;
+        }
+        #btn2{
+            padding:5px 15px;
+        }
+        #picture{
+            position:relative;
+            transition-timing-function:ease-in-out;
+            transition-duration:3s;
+        }
+       
+    </style>
+</head>
+<body>
+    <img src="animation.PNG" alt="animation" id="picture">
+    <br>
+    <br>
+    <button type="submit" id="btn1" onclick="startanimation()">start</button>
+    <button type="submit" id="btn2" onclick="stopanimation()">stop</button>
+    <script>
+        
+         let currentposition = 0;
+        const pic = document.getElementById('picture');
+
+        function startanimation() {
+                currentposition = 500;
+                pic.style.transitionDuration = '3s';
+                pic.style.left = currentposition +"px";
+            }
+
+        function stopanimation() {
+                currentposition=0;
+                pic.style.transitionDuration = '3s';
+                 pic.style.left =currentposition +"px"; 
+            }
+    </script>
+</body>
+</html>

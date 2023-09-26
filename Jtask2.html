@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jtask2</title>
+</head>
+<body>
+    <p> Write a JavaScript function that returns a passed string with letters in</p>
+    <label for="inputString">String : </label>
+    <input type="text" id="inputString">
+    <button onclick="alphabeticalString()">Click</button>
+    <p>Alphabetical Output:<span id="output"></p>
+    <script>
+        function alphabeticalString(){
+            let input=document.getElementById("inputString").value;
+            let charArray=input.split("");
+            charArray.sort(function(a,b){
+                return a.localeCompare(b);
+            });
+            let sortedString = charArray.join("");
+            document.getElementById("output").textContent=sortedString;
+        }
+    </script>
+</body>
+</html>
